@@ -2,7 +2,8 @@ from flask import Flask, render_template, request
 import pandas as pd
 import os
 
-app = Flask(__name__)
+# Set the template folder to 'docs'
+app = Flask(__name__, template_folder='docs')
 
 # Load data from the CSV file
 file_path = r'D:\WomenEmpowermentApp\data\yojana info.csv'
