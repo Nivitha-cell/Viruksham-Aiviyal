@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viruksham Aiviyal</title>
+</head>
+<body>
+    <h1>Check Your Eligibility for Yojanas</h1>
+    
+    <form action="/check" method="POST">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br>
+
+        <label for="employment_status">Employment Status:</label>
+        <select id="employment_status" name="employment_status" required>
+            <option value="employed">Employed</option>
+            <option value="unemployed">Unemployed</option>
+            <option value="student">Student</option>
+            <option value="housewife">Housewife</option>
+            <option value="retired">Retired</option>
+        </select><br>
+
+        <label for="sector">Sector (if applicable):</label>
+        <select id="sector" name="sector">
+            <option value="none">None</option>
+            <option value="health">Health</option>
+            <option value="education">Education</option>
+            <option value="women empowerment">Women Empowerment</option>
+            <option value="other">Other</option>
+        </select><br>
+
+        <input type="submit" value="Check Eligibility">
+    </form>
+</body>
+</html>

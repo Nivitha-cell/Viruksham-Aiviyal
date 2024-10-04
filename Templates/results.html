@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viruksham Aiviyal - Eligibility Results</title>
+</head>
+<body>
+    <h1>Eligibility Results</h1>
+    
+    {% if schemes %}
+        <h2>Eligible Yojanas:</h2>
+        <ul>
+            {% for scheme in schemes %}
+                <li>
+                    <strong>Name:</strong> {{ scheme['Name'] }}<br>
+                    <strong>Sector:</strong> {{ scheme['Sector'] }}<br>
+                    <strong>Description:</strong> {{ scheme['Description'] }}<br>
+                    <strong>Benefits:</strong> {{ scheme['Benefits'] }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Sorry, no eligible yojanas were found based on your input.</p>
+    {% endif %}
+
+    <a href="/">Check another eligibility</a>
+</body>
+</html>
