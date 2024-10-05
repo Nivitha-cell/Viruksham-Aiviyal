@@ -4,28 +4,38 @@ import os
 
 app = Flask(__name__)
 
-# Load data from the CSV file
-file_path = r'D:\WomenEmpowermentApp\data\yojana info.csv'
-if os.path.exists(file_path):
-    data = pd.read_csv(file_path)
-else:
-    print("File not found.")
+# Specify the path to the yojana data
+file_path = 'data/Yojana info.csv'  # Adjusted the path to point to the 'data' folder
+
+# Check if the file exists
+if not os.path.exists(file_path):
+    print(f"File not found: {file_path}")
+
+# Load the yojana data from the CSV file
+yojana_data = pd.read_csv(file_path)
 
 @app.route('/')
 def index():
-    # Get unique sectors for the dropdown list
-    sectors = data['Sector'].unique()
-    return render_template('index.html', sectors=sectors)
+    return render_template('index.html')
 
 @app.route('/check', methods=['POST'])
 def check():
-    name = request.form['name']
-    sector = request.form['sector']
-    
-    # Filtering logic based on selected sector
-    eligible_schemes = data[data['Sector'].str.lower() == sector.lower()]
+    name = request.form.get('name')
+    sector = request.form.get('sector')
 
-    return render_template('results.html', name=name, schemes=eligible_schemes.to_dict(orient='records'))
+    # Filter the yojanas based on the selected sector
+    eligible_schemes = yojana_data[yojana_data['Sector'] == sector]
+
+    schemes = []
+    for _, row in eligible_schemes.iterrows():
+        schemes.append({
+            'Name': row['Yojana Name'],
+            'Sector': row['Sector'],
+            'Description': row['Eligibility'],
+            'Benefits': row['Benefits'],
+        })
+
+    return render_template('results.html', schemes=schemes, name=name)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5002)

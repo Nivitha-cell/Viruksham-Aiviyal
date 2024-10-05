@@ -6,15 +6,14 @@
     <title>Viruksham Aiviyal - Eligibility Results</title>
 </head>
 <body>
-    <h1>Eligibility Results for {{ name }}</h1>
+    <h1>Eligibility Results</h1>
     
     {% if schemes %}
         <h2>Eligible Yojanas:</h2>
         <ul>
             {% for scheme in schemes %}
                 <li>
-                    <strong>Name:</strong> {{ scheme['Yojana Name'] }}<br>
-                    <strong>Sector:</strong> {{ scheme['Sector'] }}<br>
+                    <strong>Yojana Name:</strong> {{ scheme['Yojana Name'] }}<br>
                     <strong>Eligibility:</strong> {{ scheme['Eligibility'] }}<br>
                     <strong>Deadline:</strong> {{ scheme['Deadline'] }}<br>
                     <strong>Benefits:</strong> {{ scheme['Benefits'] }}<br>
