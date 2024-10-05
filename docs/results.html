@@ -6,16 +6,19 @@
     <title>Results</title>
 </head>
 <body>
-    <h1>Results</h1>
-    {% if data %}
-        <ul>
-            {% for item in data %}
-                <li>{{ item['Sector'] }}: {{ item['Benefits'] }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No data found for the selected sector.</p>
-    {% endif %}
+    <h1>Results for {{ name }}</h1>
+    <ul>
+    {% for scheme in schemes %}
+        <li>
+            <b>{{ scheme['Yojana Name'] }}</b>
+            <ul>
+                <li><i>Eligibility:</i> {{ scheme['Eligibility'] }}</li>
+                <li><i>Deadline:</i> {{ scheme['Deadline'] }}</li>
+                <li><i>Benefits:</i> {{ scheme['Benefits'] }}</li>
+            </ul>
+        </li>
+    {% endfor %}
+    </ul>
     <a href="/">Go back</a>
 </body>
 </html>
