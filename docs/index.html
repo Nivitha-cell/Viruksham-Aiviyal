@@ -3,26 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viruksham Aiviyal</title>
+    <title>Women Empowerment App</title>
 </head>
 <body>
-    <h1>Check Your Eligibility for Yojanas</h1>
-    
-    <form action="/check" method="POST">
-        <label for="name">Your Name:</label>
-        <input type="text" id="name" name="name" required><br>
-
+    <h1>Welcome to the Women Empowerment App</h1>
+    <form action="/results" method="post">
         <label for="sector">Select Sector:</label>
-        <select id="sector" name="sector" required>
-            <option value="finance">Finance</option>
-            <option value="institutional support">Institutional Support</option>
-            <option value="education">Education</option>
-            <option value="employment">Employment</option>
-            <option value="incentive benefits">Incentive Benefits</option>
-            <option value="social welfare">Social Welfare</option>
-        </select><br>
-
-        <input type="submit" value="Check Eligibility">
+        <select name="sector" id="sector">
+            <option value="Finance">Finance</option>
+            <option value="Education">Education</option>
+            <option value="Employment">Employment</option>
+            <option value="Institutional Support">Institutional Support</option>
+            <!-- Add more options as needed -->
+        </select>
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>

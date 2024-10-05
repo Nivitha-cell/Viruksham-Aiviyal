@@ -3,27 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viruksham Aiviyal - Eligibility Results</title>
+    <title>Results</title>
 </head>
 <body>
-    <h1>Eligibility Results</h1>
-    
-    {% if schemes %}
-        <h2>Eligible Yojanas:</h2>
+    <h1>Results</h1>
+    {% if data %}
         <ul>
-            {% for scheme in schemes %}
-                <li>
-                    <strong>Yojana Name:</strong> {{ scheme['Yojana Name'] }}<br>
-                    <strong>Eligibility:</strong> {{ scheme['Eligibility'] }}<br>
-                    <strong>Deadline:</strong> {{ scheme['Deadline'] }}<br>
-                    <strong>Benefits:</strong> {{ scheme['Benefits'] }}<br>
-                </li>
+            {% for item in data %}
+                <li>{{ item['Sector'] }}: {{ item['Benefits'] }}</li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>Sorry, no eligible yojanas were found based on your input.</p>
+        <p>No data found for the selected sector.</p>
     {% endif %}
-
-    <a href="/">Check another eligibility</a>
+    <a href="/">Go back</a>
 </body>
 </html>
