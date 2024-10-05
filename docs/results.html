@@ -8,13 +8,13 @@
 <body>
     <h1>Results for {{ name }}</h1>
     <ul>
-    {% for scheme in schemes %}
+    {% for item in data %}
         <li>
-            <b>{{ scheme['Yojana Name'] }}</b>
+            <b>{{ item['Yojana Name'] }}</b>
             <ul>
-                <li><i>Eligibility:</i> {{ scheme['Eligibility'] }}</li>
-                <li><i>Deadline:</i> {{ scheme['Deadline'] }}</li>
-                <li><i>Benefits:</i> {{ scheme['Benefits'] }}</li>
+                <li><i>Eligibility:</i> {{ item['Eligibility'] }}</li>
+                <li><i>Deadline:</i> {{ item['Deadline'] }}</li>
+                <li><i>Benefits:</i> {{ item['Benefits'] }}</li>
             </ul>
         </li>
     {% endfor %}
@@ -22,3 +22,5 @@
     <a href="/">Go back</a>
 </body>
 </html>
+
+
