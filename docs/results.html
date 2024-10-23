@@ -3,24 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
+    <title>Viruksham - Results</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/image.png') }}");
+            background-size: cover;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+        .result-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 70%;
+            margin-top: 30px;
+        }
+        ul {
+            text-align: left;
+        }
+        a {
+            color: #ADD8E6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>Results for {{ name }}</h1>
-    <ul>
-    {% for item in data %}
-        <li>
-            <b>{{ item['Yojana Name'] }}</b>
-            <ul>
-                <li><i>Eligibility:</i> {{ item['Eligibility'] }}</li>
-                <li><i>Deadline:</i> {{ item['Deadline'] }}</li>
-                <li><i>Benefits:</i> {{ item['Benefits'] }}</li>
-            </ul>
-        </li>
-    {% endfor %}
-    </ul>
-    <a href="/">Go back</a>
+    <p><b>Contact Number:</b> {{ contact }}</p>
+
+    <div class="result-container">
+        <ul>
+            {% for item in data %}
+                <li>
+                    <b>{{ item['Yojana Name'] }}</b>
+                    <ul>
+                        <li><i>Eligibility:</i> {{ item['Eligibility'] }}</li>
+                        <li><i>Deadline:</i> {{ item['Deadline'] }}</li>
+                        <li><i>Benefits:</i> {{ item['Benefits'] }}</li>
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <a href="/">Go Back</a>
 </body>
 </html>
-
-

@@ -3,21 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Women Empowerment App</title>
+    <title>Viruksham</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/image.png') }}");
+            background-size: cover;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+        form {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        input, select, button {
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 80%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Women Empowerment App</h1>
+    <h1>Welcome to Viruksham</h1>
     <form action="/" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="sector">Select Sector:</label>
-        <select name="sector" id="sector">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="contact">Contact Number:</label><br>
+        <input type="tel" id="contact" name="contact" pattern="[0-9]{10}" required><br>
+
+        <label for="sector">Select Sector:</label><br>
+        <select name="sector" id="sector" required>
             <option value="">Select Sector</option>
             <option value="Finance">Finance</option>
             <option value="Education">Education</option>
             <option value="Employment">Employment</option>
             <option value="Institutional Support">Institutional Support</option>
-        </select>
+        </select><br>
+
         <button type="submit">Submit</button>
     </form>
 </body>
